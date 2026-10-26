@@ -22,8 +22,10 @@ export const routes: Routes = [
     path: 'inscricoes/:email', 
     loadComponent: () => import('./pages/detalhes-inscricao/detalhes-inscricao.component').then(m => m.DetalhesInscricaoComponent) 
   },
-  { 
-    path: '**', 
-    loadComponent: () => import('./pages/nao-encontrado/nao-encontrado.component').then(m => m.NaoEncontradoComponent) 
-  }
+ {
+  path: '**',
+  loadComponent: () =>
+    import('./pages/nao-encontrado/nao-encontrado.component')
+      .then(m => m.NaoEncontradoComponent)
+}
 ];
