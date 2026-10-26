@@ -15,7 +15,10 @@ import { InscricaoService, Inscricao } from '../../services/inscricao.service';
           <p><strong>E-mail:</strong> {{ inscricao.email }}</p>
           <p><strong>Data de Nascimento:</strong> {{ formatarData(inscricao.dataNascimento) }}</p>
           <p><strong>Idade na Prova:</strong> {{ inscricao.idadeNaProva }} anos</p>
-          <p><strong>Categoria:</strong> {{ inscricao.categoria }}</p>
+          <p>
+            <strong>Categoria:</strong>
+            {{ formatarCategoria(inscricao.categoria) }}
+          </p>
           <p><strong>Percurso Escolhido:</strong> {{ inscricao.distancia === 'KM_5' ? '5 km' : '10 km' }}</p>
         </div>
 
@@ -50,20 +53,31 @@ export class DetalhesInscricaoComponent implements OnInit {
 
   inscricao?: Inscricao;
 
-  ngOnInit(): void {
-    const paramEmail = this.route.snapshot.paramMap.get('email');
-    if (paramEmail) {
-      const emailDecodificado = decodeURIComponent(paramEmail);
-      this.inscricao = this.service.buscarPorEmail(emailDecodificado);
-    }
+ 
+ngOnInit(): void {
+  const paramEmail = this.route.snapshot.paramMap.get('email');
+
+  if (paramEmail) {
+    this.inscricao = this.service.buscarPorEmail(paramEmail);
   }
+}
+
 
   formatarData(dataIso: string): string {
     if (!dataIso) return '';
     const [ano, mes, dia] = dataIso.split('-');
     return `${dia}/${mes}/${ano}`;
   }
+formatarCategoria(categoria: string): string {
+  const categorias: Record<string, string> = {
+    JUVENIL: 'Juvenil',
+    ADULTO: 'Adulto',
+    MASTER: 'Master',
+    SENIOR: 'Sênior'
+  };
 
+  return categorias[categoria] ?? categoria;
+}
   editar(): void {
     if (this.inscricao) {
       this.router.navigate(['/inscricoes', encodeURIComponent(this.inscricao.email), 'editar']);
