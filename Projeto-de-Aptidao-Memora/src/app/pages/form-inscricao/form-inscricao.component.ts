@@ -25,6 +25,8 @@ import { Distancia } from '../../dominio/inscricao.regras';
             [(ngModel)]="nomeCompleto" 
             name="nomeCompleto" 
             required
+            minlength="3"
+            maxlength="100"
             placeholder="Digite seu nome completo"
           />
         </div>
@@ -104,7 +106,7 @@ export class FormInscricaoComponent implements OnInit {
     const paramEmail = this.route.snapshot.paramMap.get('email');
     if (paramEmail) {
       this.modoEdicao = true;
-      this.emailOriginal = decodeURIComponent(paramEmail);
+      this.emailOriginal = paramEmail;
       
       const inscricao = this.service.buscarPorEmail(this.emailOriginal);
       if (inscricao) {
