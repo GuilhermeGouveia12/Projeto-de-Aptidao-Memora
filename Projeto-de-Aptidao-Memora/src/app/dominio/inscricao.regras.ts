@@ -1,17 +1,25 @@
-// Tipos definidos pelo contrato da avaliação
+
 export type Distancia = 'KM_5' | 'KM_10';
-export type Categoria = 'JUVENIL' | 'ADULTO' | 'MASTER' | 'SENIOR';
-export type ErroRegulamento = 'IDADE_MINIMA' | 'DISTANCIA_NAO_PERMITIDA' | null;
+
+export type Categoria =
+  | 'JUVENIL'
+  | 'ADULTO'
+  | 'MASTER'
+  | 'SENIOR';
+
+export type ErroRegulamento =
+  | 'IDADE_MINIMA'
+  | 'DISTANCIA_NAO_PERMITIDA';
 
 export interface AvaliacaoInscricao {
   aceita: boolean;
-  idadeNaProva: number | null;
+  idadeNaProva: number;
   categoria: Categoria | null;
-  erro: ErroRegulamento;
+  erro: ErroRegulamento | null;
 }
 
-// Data oficial da prova fixada pelo Regulamento Art. 5º I
 export const DATA_DA_PROVA = '2027-03-14';
+
 
 /**
  * Converte o e-mail para minúsculas e remove espaços das pontas.
@@ -52,22 +60,22 @@ export function avaliarInscricao(
 
   // Regra de precedência: Primeiro checa idade mínima global
   if (idade < 14) {
-    return {
-      aceita: false,
-      idadeNaProva: null,
-      categoria: null,
-      erro: 'IDADE_MINIMA'
-    };
+   return {
+  aceita: false,
+  idadeNaProva: idade,
+  categoria: null,
+  erro: 'IDADE_MINIMA'
+};
   }
 
   // Depois checa a restrição de 10 km
   if (distancia === 'KM_10' && idade < 18) {
     return {
-      aceita: false,
-      idadeNaProva: null,
-      categoria: null,
-      erro: 'DISTANCIA_NAO_PERMITIDA'
-    };
+  aceita: false,
+  idadeNaProva: idade,
+  categoria: null,
+  erro: 'DISTANCIA_NAO_PERMITIDA'
+};
   }
 
   // Determina a categoria
