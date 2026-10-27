@@ -1,13 +1,17 @@
 /* ===== CABEÇALHO PRINCIPAL ===== */
 .header {
   position: relative;
-  overflow: hidden;
-  padding: 48px 24px 90px;
+  overflow: visible;
+  padding: 48px 24px 40px;
   color: #ffffff;
-  background: linear-gradient(135deg, #102a43 0%, #174b52 55%, #176b55 100%);
+  background: linear-gradient(
+    135deg,
+    #102a43 0%,
+    #174b52 55%,
+    #176b55 100%
+  );
   border-radius: 0 0 32px 32px;
 }
-
 /* Detalhes decorativos */
 .header::before {
   content: "";
@@ -91,7 +95,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   max-width: 1100px;
-  margin: 42px auto -125px;
+  margin: 42px auto 0;
 }
 
 .card-resumo {
@@ -150,7 +154,7 @@
 /* ===== ÁREA PRINCIPAL ===== */
 .container {
   width: min(1100px, calc(100% - 40px));
-  margin: 155px auto 50px;
+  margin: 45px auto 50px;
 }
 
 /* ===== RESPONSIVIDADE ===== */
@@ -177,7 +181,7 @@
     grid-template-columns: 1fr;
     gap: 12px;
     margin-top: 30px;
-    margin-bottom: -125px;
+    margin-bottom: 0;
   }
 
   .card-resumo {
@@ -206,10 +210,10 @@
     align-self: start;
   }
 
-  .container {
-    width: calc(100% - 28px);
-    margin-top: 155px;
-  }
+.container {
+  width: calc(100% - 28px);
+  margin: 35px auto 40px;
+}
 }
 
 @media (prefers-reduced-motion: reduce) {
