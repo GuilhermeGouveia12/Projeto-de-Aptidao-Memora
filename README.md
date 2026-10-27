@@ -1,67 +1,111 @@
-# Este projeto foi gerado utilizando o Angular CLI
+# Projeto de Aptidão — 5ª Corrida Solidária
 
-Este projeto foi gerado utilizando o [Angular CLI](https://angular.dev/tools/cli) na versão 22.2.4.
+Sistema web para gerenciamento de inscrições da 5ª Corrida Solidária da Vila Esperança, desenvolvido com Angular.
 
-## Servidor de desenvolvimento
+## Funcionalidades
 
-Para iniciar um servidor de desenvolvimento local, execute o comando:
+- Cadastro de participantes.
+- Listagem e consulta de inscrições.
+- Edição e cancelamento de inscrições.
+- Validação de idade, categoria e distância.
+- Impedimento de inscrições com e-mail duplicado.
+- Armazenamento local dos dados no navegador.
 
-```bash
-ng serve
-```
+## Tecnologias
 
-Após iniciar o servidor, abra o navegador e acesse `http://localhost:4200/`.
+- Angular
+- TypeScript
+- HTML e CSS
+- LocalStorage
 
-A aplicação será recarregada automaticamente sempre que você modificar qualquer um dos arquivos de código-fonte.
+## Pré-requisitos
 
-## Geração de código
+Antes de começar, instale:
 
-O Angular CLI oferece ferramentas poderosas para gerar componentes e outros elementos do projeto.
+- Node.js compatível com Angular 22.
+- npm.
+- Git, caso queira clonar o repositório.
 
-Para gerar um novo componente, execute:
+## Como executar o projeto
 
-```bash
-ng generate component nome-do-componente
-```
+### 1. Baixe o projeto
 
-Para consultar a lista completa de recursos disponíveis, como componentes (`components`), diretivas (`directives`) e pipes (`pipes`), execute:
-
-```bash
-ng generate --help
-```
-
-## Compilação do projeto
-
-Para compilar o projeto, execute o comando:
+Clone o repositório:
 
 ```bash
-ng build
+git clone URL_DO_REPOSITORIO
 ```
 
-Esse comando compilará a aplicação e armazenará os arquivos gerados no diretório `dist/`.
-
-Por padrão, a compilação de produção otimiza a aplicação para melhorar o desempenho e a velocidade.
-
-## Execução dos testes unitários
-
-Para executar os testes unitários utilizando o Vitest como ferramenta de testes, execute:
+Entre na pasta criada:
 
 ```bash
-ng test
+cd Projeto-de-Aptidao-Memora
 ```
 
-## Execução dos testes de ponta a ponta (E2E)
+**Importante:** execute os próximos comandos na pasta que contém o arquivo `package.json`, junto do `angular.json` e da pasta `src`.
 
-Para executar testes de ponta a ponta (*end-to-end* ou E2E), utilize o comando:
+Se houver duas pastas com o mesmo nome, entre na pasta interna que contém esses arquivos.
+
+### 2. Instale as dependências
 
 ```bash
-ng e2e
+npm install
 ```
 
-O Angular CLI não inclui, por padrão, uma estrutura de testes E2E. Você pode escolher a ferramenta mais adequada às necessidades do seu projeto.
+Esse comando instala as dependências necessárias para executar o projeto.
 
-## Recursos adicionais
+### 3. Inicie a aplicação
 
-Para obter mais informações sobre o Angular CLI, incluindo comandos e suas respectivas referências, acesse a página oficial:
+```bash
+npm start
+```
 
-[Visão geral e referência de comandos do Angular CLI](https://angular.dev/tools/cli).
+Abra o navegador no endereço:
+
+http://localhost:4200
+
+## Testes e compilação
+
+Para executar os testes:
+
+```bash
+npm test
+```
+
+Para compilar o projeto:
+
+```bash
+npm run build
+```
+
+## Estrutura do projeto
+
+```text
+src/
+└── app/
+    ├── dominio/
+    ├── pages/
+    │   ├── detalhes-inscricao/
+    │   ├── form-inscricao/
+    │   ├── lista-inscricoes/
+    │   └── nao-encontrado/
+    ├── services/
+    ├── app.config.ts
+    ├── app.routes.ts
+    ├── app.html
+    └── app.ts
+```
+
+## Observações
+
+- Os dados das inscrições são armazenados no LocalStorage do navegador.
+- Os dados ficam no navegador utilizado e não são sincronizados automaticamente entre computadores.
+- Para executar o projeto em outro computador, é necessário instalar as dependências com `npm install`.
+
+## Evento
+
+**5ª Corrida Solidária da Vila Esperança**
+
+- Data: 14 de março de 2027.
+- Percursos: 5 km e 10 km.
+
