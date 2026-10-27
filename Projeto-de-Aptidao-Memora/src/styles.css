@@ -1,1 +1,140 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --cor-principal: #173f5f;
+  --cor-secundaria: #176b55;
+  --cor-destaque: #c7f36b;
+  --cor-laranja: #f59e0b;
+  --cor-fundo: #f4f7fa;
+  --cor-texto: #183047;
+  --cor-texto-suave: #64748b;
+  --cor-borda: #e2e8f0;
+  --cor-branco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgb(23 107 85 / 35%);
+  outline-offset: 3px;
+}
+
+a {
+  color: var(--cor-secundaria);
+}
+
+/* ===== TÍTULOS DAS PÁGINAS ===== */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--cor-texto);
+  line-height: 1.25;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+}
+
+/* ===== CAMPOS DE FORMULÁRIO ===== */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  color: var(--cor-texto);
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgb(23 107 85 / 10%);
+  outline: none;
+}
+
+input:disabled {
+  color: #64748b;
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+/* ===== BOTÕES PADRÃO ===== */
+button,
+.botao {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:active,
+.botao:active {
+  transform: translateY(1px);
+}
+
+/* ===== ACESSIBILIDADE ===== */
+::selection {
+  color: var(--cor-texto);
+  background: #d9f99d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
