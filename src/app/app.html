@@ -22,21 +22,21 @@
     <div class="card-resumo card-total">
       <span class="card-icone">🏃</span>
       <span class="card-legenda">Total de inscritos</span>
-      <strong>0</strong>
+      <strong>{{ service.totalInscritos() }}</strong>
       <span class="card-detalhe">participantes</span>
     </div>
 
     <div class="card-resumo card-5km">
       <span class="card-icone">🟢</span>
       <span class="card-legenda">Percurso curto</span>
-      <strong>0</strong>
+      <strong>{{ service.total5k() }}</strong>
       <span class="card-detalhe">inscritos nos 5 km</span>
     </div>
 
     <div class="card-resumo card-10km">
       <span class="card-icone">🟠</span>
       <span class="card-legenda">Percurso longo</span>
-      <strong>0</strong>
+      <strong>{{ service.total10k() }}</strong>
       <span class="card-detalhe">inscritos nos 10 km</span>
     </div>
   </div>
